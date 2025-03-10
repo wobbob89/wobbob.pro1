@@ -1,34 +1,22 @@
-// Create new HTML5 elements ===================================================
+// Create new HTML5 elements for older browsers ================================
 // -----------------------------------------------------------------------------
-// This script should load before any others. We want the new elements to be
-// parsed before pretty much anything happens.
-// Plus, IE does not behave otherwise. The cost of being progressive...
+// Ensures all new HTML5 elements are recognized and styled properly
+// This script should load before any others.
 // -----------------------------------------------------------------------------
 
-document.createElement("article");
-document.createElement("aside");
-document.createElement("audio");
-document.createElement("canvas");
-document.createElement("command");
-document.createElement("datalist");
-document.createElement("details");
-document.createElement("embed");
-document.createElement("figcaption");
-document.createElement("figure");
-document.createElement("footer");
-document.createElement("header");
-document.createElement("hgroup");
-document.createElement("keygen");
-document.createElement("mark");
-document.createElement("meter");
-document.createElement("nav");
-document.createElement("output");
-document.createElement("progress");
-document.createElement("rp");
-document.createElement("rt");
-document.createElement("ruby");
-document.createElement("section");
-document.createElement("source");
-document.createElement("summary");
-document.createElement("time");
-document.createElement("video");
+(function() {
+    var elements = [
+        "article", "aside", "audio", "canvas", "command", "datalist", "details", "embed",
+        "figcaption", "figure", "footer", "header", "hgroup", "keygen", "mark", "meter", "nav", 
+        "output", "progress", "rp", "rt", "ruby", "section", "source", "summary", "time", "video"
+    ];
+    for (var i = 0; i < elements.length; i++) {
+        document.createElement(elements[i]);
+    }
+
+    // Ensure older browsers recognize and style these elements correctly
+    var style = document.createElement("style");
+    style.type = "text/css";
+    style.innerHTML = elements.join(", ") + " { display: block; }";
+    document.head.appendChild(style);
+})();
