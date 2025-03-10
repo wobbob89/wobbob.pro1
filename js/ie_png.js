@@ -1,6 +1,3 @@
-// Advanced PNG Fix for IE6
-// Implements VML-based PNG transparency fix
-
 var ie_png = {
 
     ns: 'ie_png',
@@ -28,7 +25,7 @@ var ie_png = {
     
     applyFix: function(selector) {
         var selectors = selector.split(',');
-        for (var i=0; i<selectors.length; i++) {
+        for (var i = 0; i < selectors.length; i++) {
             this.styleSheet.addRule(selectors[i], 'behavior:expression(ie_png.fixPng.call(this))');
         }
     },
