@@ -5,21 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WoBBoB Gallery</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/gallery.js"></script>
 </head>
 <body>
     <header>
         <h1>WoBBoB Gallery</h1>
     </header>
     <main>
-        <div class="gallery">
-            <img src="images/000000000DJ1400x1400.jpg" alt="DJ Set">
-            <img src="images/1713410324441.jpg" alt="WoBBoB Performance">
-            <img src="images/face-swap.png" alt="Promo Image">
-            <img src="images/Untitled-12.png" alt="Album Art">
+        <button id="openGallery">View Gallery</button>
+        <div class="gallery" id="galleryContainer" style="display: none;">
+            <script>
+                const galleryContainer = document.getElementById('galleryContainer');
+                const imageFiles = [
+                    "000000000DJ1400x1400.jpg", "1713410324441.jpg", "1713410650947.jpg",
+                    "1713410890007.jpg", "1713412375517(1).jpg", "192c834325138e33b876dbd3b4014a26edd3f2ca43621ab2265959b9cc27057c.jpg",
+                    "2e6ff2a541897e7b0c7298a697b14956d09f2797910349b4212ce16f725dbfac.jpg",
+                    "382de9e3c09d91348356b70c4be9c221cb3db4a6ad1276efc12ecd47db250e43.jpg",
+                    "3e7a0666cccf5ec2de191ed11a8bdb5f2f229d216259d6daba86a93e986d2a95.jpg",
+                    "414dec7e9341701b9e888c2445c8dc9346927e5de02ef83f8d9fb5c42608b189.png",
+                    "face-swap.png", "face-swap14.png", "Untitled-1.png", "Untitled-10.png",
+                    "Untitled-11.png", "Untitled-12.png", "Untitled-13.png", "Untitled-14.png",
+                    "Untitled-15.png", "Untitled-2.png", "Untitled-3.png", "Untitled-4.png",
+                    "Untitled-5.png", "Untitled-6.png", "Untitled-7.png", "Untitled-8.png",
+                    "Untitled-9.png"
+                ];
+                
+                imageFiles.forEach(file => {
+                    let img = document.createElement('img');
+                    img.src = `images/${file}`;
+                    img.alt = "Gallery Image";
+                    galleryContainer.appendChild(img);
+                });
+            </script>
         </div>
     </main>
     <footer>
         <p>&copy; 2025 WoBBoB - All Rights Reserved.</p>
     </footer>
+    <script>
+        document.getElementById('openGallery').addEventListener('click', function() {
+            document.getElementById('galleryContainer').style.display = 'block';
+        });
+    </script>
 </body>
 </html>
